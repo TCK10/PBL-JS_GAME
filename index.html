@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Reboot</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      html,
+      body {
+        background-color: #0a0014;
+      }
+      .sprite-button {
+  position: absolute; /* was fixed */
+  bottom: 10px;       /* adjust as needed */
+  left: 79%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 120px;
+  background-image: url("./assets/button-normal.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 1; /* visible */
+  transition: all 0.3s ease;
+  z-index: 10;
+  pointer-events: auto;
+  padding: 0;
+}
+
+
+      .sprite-button:hover {
+        transform: translateX(-50%) scale(1.05);
+      }
+
+      .sprite-button:active {
+        background-image: url("./assets/button-pressed.png");
+        transform: translateX(-50%) scale(0.95);
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="loading-screen">
+      <div class="loading-content">
+        <div class="progress-container">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="loading-text">LOADING...</div>
+      </div>
+    </div>
+
+    <div class="container" id="glitchContainer">
+      <div class="yepp-container">
+        <img src="assets/yepp.png" alt="yepp" id="yeppImage" />
+      </div>
+
+      <nav class="scroll-nav visible">
+        <div class="nav-content">
+          <img src="assets/yepp.png" alt="yepp" class="nav-logo" />
+          <div class="nav-links">
+            <a href="#" class="nav-link">HOME</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="content">
+        <div>
+          <h1>Escape the System. Rewrite Your Fate.</h1>
+          <div class="cards-container">
+            <div class="card">
+              <h1>SURVIVE</h1>
+              <h3>
+                Navigate through a corrupted digital realm, avoiding deadly
+                traps and confronting system threats.
+              </p>
+            </div>
+            <div class="card">
+              <h1>HACK</h1>
+              <h3>
+                Use Data Fragments to your advantage and bend reality to your
+                will.
+              </p>
+            </div>
+            <div class="card">
+              <h1>ESCAPE</h1>
+              <h3>
+                Break free from the system's control and forge your own path
+                through multiple challenging endings.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="purple-section">
+        <div class="section-content">
+          <div class="section-text">
+            <h2>Ready to Play?</h2>
+            <h3>
+              Experience the game that will change your perspective on reality.
+            </p>
+          </div>
+          <a href="game.html"><button class="sprite-button" id="startButton"></button></a>
+        </div>
+      </section>
+
+      <div class="glitch-container" id="glitchEffect"></div>
+
+      <footer class="site-footer">
+        <div class="character-previews">
+          <div class="box purple-box">
+            <div class="chatbox">
+              "hi, i draw. i like to draw. i draw a lot. i draw for you."
+            </div>
+            <div class="box-info">
+              <h1>Muna 2K6</h1>
+              <h3>Artist</p>
+            </div>
+          </div>
+          <div class="box green-box">
+            <div class="chatbox">
+              "HI, I am the lead programmer (also the only programmer) for this
+              game. I hope you enjoy it!"
+            </div>
+            <div class="box-info">
+              <h1>TCK 2K5</h1>
+              <h3>Programmer</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-content">
+          <h3>© 2025 DIGITAL REBOOT</p>
+        </div>
+      </footer>
+    </div>
+    <script>
+      window.addEventListener("load", function () {
+        const loadingScreen = document.querySelector(".loading-screen");
+        const progressBar = document.querySelector(".progress-bar");
+        let progress = 0;
+
+        const interval = setInterval(() => {
+          progress += 1;
+          progressBar.style.width = progress + "%";
+
+          if (progress >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+              loadingScreen.classList.add("hidden");
+            }, 500);
+          }
+        }, 30); // Will take ~3 seconds to complete
+      });
+    </script>
+  </body>
+</html>
